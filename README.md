@@ -52,14 +52,13 @@ import { CacheProvider } from "@emotion/core";
 import createCache from "@emotion/cache";
 import { createSandboxPlugin } from "@smallmultiples/emotion-sandbox";
 
-  const styleCache = createCache({
-    stylisPlugins: [
-      createSandboxPlugin('#embed'), // must match div id below
-      /* more plugins */
-    ],
-    /* more options */
-  });
-
+const styleCache = createCache({
+  stylisPlugins: [
+    createSandboxPlugin('#embed'), // must match div id below
+    /* more plugins */
+  ],
+  /* more options */
+});
 
 const App = (
   <CacheProvider value={styleCache}>
