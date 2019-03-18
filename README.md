@@ -6,12 +6,16 @@ A React emotion plugin for high specificity CSS
 Use the component at the top level of your react app. It must be the ancestor of any emotion component.
 
 ```
-import StyleSandbox from "@smallmultiples/emotion-sandbox";
+yarn add @smallmultiples/emotion-sandbox
+```
+
+```
+import { StyleSandbox } from "@smallmultiples/emotion-sandbox";
 
 const App = (
-  <StyleSandbox id="embed">
+  <StyleSandbox elementId="myEmbed">
     {/* rest of application */}
-  </StyleSandbox>  
+  </StyleSandbox>
 );
 ```
 
@@ -29,13 +33,13 @@ It transforms CSS of the form:
 into
 
 ```
-#embed .css-MyComponent123 {
+#myEmbed .css-MyComponent123 {
   color: red;
   font-size: 16;
 }
 ```
 
-It also renders the `<div id="embed">` element, to provide the specifity hook.
+It also renders the `<div id="myEmbed">` element, to provide the specifity hook.
 
 ## Why it's useful
 
@@ -54,7 +58,7 @@ import { createSandboxPlugin } from "@smallmultiples/emotion-sandbox";
 
 const styleCache = createCache({
   stylisPlugins: [
-    createSandboxPlugin('#embed'), // must match div id below
+    createSandboxPlugin('#myEmbed'), // must match div id below
     /* more plugins */
   ],
   /* more options */
@@ -62,9 +66,9 @@ const styleCache = createCache({
 
 const App = (
   <CacheProvider value={styleCache}>
-    <div id="embed">
+    <div id="myEmbed">
       {/* rest of application */}
     </div>
-  </CacheProvider>  
+  </CacheProvider>
 );
 ```

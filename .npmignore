@@ -1,0 +1,7 @@
+src/
+test/
+.npmignore
+.babelrc
+.eslintrc
+rollup.config.js
+yarn.lock

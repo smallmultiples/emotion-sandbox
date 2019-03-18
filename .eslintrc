@@ -1,0 +1,25 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb"
+  ],
+  "plugins": [
+    "react-hooks"
+  ],
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "object-curly-newline": "off",
+    "quotes": ["error", "double"],
+    "react/forbid-prop-types": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
+    "react/jsx-one-expression-per-line": "off"
+  },
+  "overrides": [{
+    "files": ["**/*.styles.js"],
+    "rules": {
+      "import/prefer-default-export": "off"
+    }
+  }]
+}
