@@ -47,9 +47,9 @@ It's handy for embedding React applications inside larger websites. In such case
 
 ## Advanced use
 
-The default component is a wrapper around emotion's [CacheProvider](https://emotion.sh/docs/cache-provider).
+`StyleSandbox` is a wrapper around emotion's [CacheProvider](https://emotion.sh/docs/cache-provider).
 
-If you need to configure `CacheProvider`, here's a more manual setup:
+If you need to configure `CacheProvider` separately, here's a more manual setup:
 
 ```
 import { CacheProvider } from "@emotion/core";
