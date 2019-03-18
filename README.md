@@ -39,7 +39,7 @@ into
 }
 ```
 
-It also renders the `<div id="myEmbed">` element, to provide the specifity hook.
+It also takes care of the `<div id="myEmbed">` markup.
 
 ## Why it's useful
 
