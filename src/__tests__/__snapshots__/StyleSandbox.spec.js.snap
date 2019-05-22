@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  id="myId"
+>
+  <div
+    className="myClass"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`renders pseudoclasses correctly 1`] = `
+#myId .emotion-0 {
+  color: blue;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+#myId .emotion-0:hover,
+.emotion-0:focus {
+  color: orange;
+}
+
+<div
+  id="myId"
+>
+  <a
+    className="emotion-0"
+  >
+    test
+  </a>
+</div>
+`;
+
+exports[`renders pseudoelements correctly 1`] = `
+#myId .emotion-0::before {
+  content: "prefix";
+}
+
+#myId .emotion-0::after {
+  content: "suffix";
+}
+
+<div
+  id="myId"
+>
+  <div
+    className="emotion-0"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`renders styles correctly 1`] = `
+#myId .emotion-0 {
+  background: white;
+  color: black;
+}
+
+<div
+  id="myId"
+>
+  <div
+    className="emotion-0"
+  >
+    test
+  </div>
+</div>
+`;
