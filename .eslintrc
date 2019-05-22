@@ -25,6 +25,9 @@
     "files": ["config/jest/**/*.js", "**/*.spec.js"],
     "env": {
       "jest": true
+    },
+    "rules": {
+      "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
     }
   }]
 }

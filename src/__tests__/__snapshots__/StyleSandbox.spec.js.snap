@@ -12,16 +12,41 @@ exports[`renders correctly 1`] = `
 </div>
 `;
 
+exports[`renders descendent elements correctly 1`] = `
+#myId .emotion-0 ~ span {
+  content: "prefix";
+}
+
+#myId a:hover + .emotion-0 {
+  content: "suffix";
+}
+
+<div
+  id="myId"
+>
+  <div
+    className="emotion-0"
+  >
+    test
+  </div>
+</div>
+`;
+
 exports[`renders pseudoclasses correctly 1`] = `
 #myId .emotion-0 {
   color: blue;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
 }
 
 #myId .emotion-0:hover,
-.emotion-0:focus {
+#myId .emotion-0:focus {
   color: orange;
+}
+
+#myId .emotion-0,
+#myId .emotion-0:hover,
+#myId .emotion-0:focus {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 <div

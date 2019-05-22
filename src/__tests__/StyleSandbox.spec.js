@@ -34,9 +34,11 @@ it("renders styles correctly", () => {
 it("renders pseudoclasses correctly", () => {
   const A = styled("a")({
     color: "blue",
-    textDecoration: "underline",
     "&:hover, &:focus": {
       color: "orange",
+    },
+    "&, &:hover, &:focus": {
+      textDecoration: "underline",
     },
   });
 
@@ -55,6 +57,25 @@ it("renders pseudoelements correctly", () => {
       content: JSON.stringify("prefix"),
     },
     "&::after": {
+      content: JSON.stringify("suffix"),
+    },
+  });
+
+  const tree = renderer.create(
+    <StyleSandbox elementId="myId">
+      <Div>test</Div>
+    </StyleSandbox>,
+  ).toJSON();
+
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders descendent elements correctly", () => {
+  const Div = styled("div")({
+    "& ~ span": {
+      content: JSON.stringify("prefix"),
+    },
+    "a:hover + &": {
       content: JSON.stringify("suffix"),
     },
   });

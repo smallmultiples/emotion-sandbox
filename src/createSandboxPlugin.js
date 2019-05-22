@@ -5,7 +5,9 @@ function createSandboxPlugin(selector) {
     stylisPlugins: [
       (context, content) => {
         if (context === -2) {
-          const newContent = content.replace(/}/g, `} ${selector} `);
+          const newContent = content
+            .replace(/,/g, `, ${selector} `)
+            .replace(/}/g, `} ${selector} `);
           return `${selector} ${newContent}`;
         }
 
