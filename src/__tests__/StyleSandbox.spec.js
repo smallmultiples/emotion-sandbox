@@ -16,16 +16,16 @@ it("renders correctly", () => {
     .toJSON();
 
   expect(tree).toMatchInlineSnapshot(`
+      <div
+        id="myId"
+      >
         <div
-          id="myId"
+          className="myClass"
         >
-          <div
-            className="myClass"
-          >
-            test
-          </div>
+          test
         </div>
-    `);
+      </div>
+  `);
 });
 
 it("renders styles correctly", () => {
@@ -43,21 +43,21 @@ it("renders styles correctly", () => {
     .toJSON();
 
   expect(tree).toMatchInlineSnapshot(`
-        #myId .emotion-0 {
-          background: white;
-          color: black;
-        }
+    #myId .emotion-0 {
+      background: white;
+      color: black;
+    }
 
-        <div
-          id="myId"
-        >
-          <div
-            className="emotion-0"
-          >
-            test
-          </div>
-        </div>
-    `);
+    <div
+      id="myId"
+    >
+      <div
+        className="emotion-0"
+      >
+        test
+      </div>
+    </div>
+`);
 });
 
 it("renders pseudoclasses correctly", () => {
@@ -80,32 +80,32 @@ it("renders pseudoclasses correctly", () => {
     .toJSON();
 
   expect(tree).toMatchInlineSnapshot(`
-        #myId .emotion-0 {
-          color: blue;
-        }
+    #myId .emotion-0 {
+      color: blue;
+    }
 
-        #myId .emotion-0:hover,
-        #myId .emotion-0:focus {
-          color: orange;
-        }
+    #myId .emotion-0:hover,
+    #myId .emotion-0:focus {
+      color: orange;
+    }
 
-        #myId .emotion-0,
-        #myId .emotion-0:hover,
-        #myId .emotion-0:focus {
-          -webkit-text-decoration: underline;
-          text-decoration: underline;
-        }
+    #myId .emotion-0,
+    #myId .emotion-0:hover,
+    #myId .emotion-0:focus {
+      -webkit-text-decoration: underline;
+      text-decoration: underline;
+    }
 
-        <div
-          id="myId"
-        >
-          <a
-            className="emotion-0"
-          >
-            test
-          </a>
-        </div>
-    `);
+    <div
+      id="myId"
+    >
+      <a
+        className="emotion-0"
+      >
+        test
+      </a>
+    </div>
+`);
 });
 
 it("renders pseudoelements correctly", () => {
@@ -127,24 +127,24 @@ it("renders pseudoelements correctly", () => {
     .toJSON();
 
   expect(tree).toMatchInlineSnapshot(`
-        #myId .emotion-0::before {
-          content: "prefix";
-        }
+    #myId .emotion-0::before {
+      content: "prefix";
+    }
 
-        #myId .emotion-0::after {
-          content: "suffix";
-        }
+    #myId .emotion-0::after {
+      content: "suffix";
+    }
 
-        <div
-          id="myId"
-        >
-          <div
-            className="emotion-0"
-          >
-            test
-          </div>
-        </div>
-    `);
+    <div
+      id="myId"
+    >
+      <div
+        className="emotion-0"
+      >
+        test
+      </div>
+    </div>
+`);
 });
 
 it("renders descendent elements correctly", () => {
