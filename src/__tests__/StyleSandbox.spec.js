@@ -7,13 +7,25 @@ import StyleSandbox from "../StyleSandbox";
 expect.addSnapshotSerializer(serializer);
 
 it("renders correctly", () => {
-  const tree = renderer.create(
-    <StyleSandbox elementId="myId">
-      <div className="myClass">test</div>
-    </StyleSandbox>,
-  ).toJSON();
+  const tree = renderer
+    .create(
+      <StyleSandbox elementId="myId">
+        <div className="myClass">test</div>
+      </StyleSandbox>,
+    )
+    .toJSON();
 
-  expect(tree).toMatchSnapshot();
+  expect(tree).toMatchInlineSnapshot(`
+    <div
+      id="myId"
+    >
+      <div
+        className="myClass"
+      >
+        test
+      </div>
+    </div>
+  `);
 });
 
 it("renders styles correctly", () => {
@@ -22,13 +34,30 @@ it("renders styles correctly", () => {
     color: "black",
   });
 
-  const tree = renderer.create(
-    <StyleSandbox elementId="myId">
-      <Div>test</Div>
-    </StyleSandbox>,
-  ).toJSON();
+  const tree = renderer
+    .create(
+      <StyleSandbox elementId="myId">
+        <Div>test</Div>
+      </StyleSandbox>,
+    )
+    .toJSON();
 
-  expect(tree).toMatchSnapshot();
+  expect(tree).toMatchInlineSnapshot(`
+    #myId .emotion-0 {
+      background: white;
+      color: black;
+    }
+
+    <div
+      id="myId"
+    >
+      <div
+        className="emotion-0"
+      >
+        test
+      </div>
+    </div>
+  `);
 });
 
 it("renders pseudoclasses correctly", () => {
@@ -42,13 +71,41 @@ it("renders pseudoclasses correctly", () => {
     },
   });
 
-  const tree = renderer.create(
-    <StyleSandbox elementId="myId">
-      <A>test</A>
-    </StyleSandbox>,
-  ).toJSON();
+  const tree = renderer
+    .create(
+      <StyleSandbox elementId="myId">
+        <A>test</A>
+      </StyleSandbox>,
+    )
+    .toJSON();
 
-  expect(tree).toMatchSnapshot();
+  expect(tree).toMatchInlineSnapshot(`
+    #myId .emotion-0 {
+      color: blue;
+    }
+
+    #myId .emotion-0:hover,
+    #myId .emotion-0:focus {
+      color: orange;
+    }
+
+    #myId .emotion-0,
+    #myId .emotion-0:hover,
+    #myId .emotion-0:focus {
+      -webkit-text-decoration: underline;
+      text-decoration: underline;
+    }
+
+    <div
+      id="myId"
+    >
+      <a
+        className="emotion-0"
+      >
+        test
+      </a>
+    </div>
+  `);
 });
 
 it("renders pseudoelements correctly", () => {
@@ -61,13 +118,33 @@ it("renders pseudoelements correctly", () => {
     },
   });
 
-  const tree = renderer.create(
-    <StyleSandbox elementId="myId">
-      <Div>test</Div>
-    </StyleSandbox>,
-  ).toJSON();
+  const tree = renderer
+    .create(
+      <StyleSandbox elementId="myId">
+        <Div>test</Div>
+      </StyleSandbox>,
+    )
+    .toJSON();
 
-  expect(tree).toMatchSnapshot();
+  expect(tree).toMatchInlineSnapshot(`
+    #myId .emotion-0::before {
+      content: "prefix";
+    }
+
+    #myId .emotion-0::after {
+      content: "suffix";
+    }
+
+    <div
+      id="myId"
+    >
+      <div
+        className="emotion-0"
+      >
+        test
+      </div>
+    </div>
+  `);
 });
 
 it("renders descendent elements correctly", () => {
@@ -80,11 +157,31 @@ it("renders descendent elements correctly", () => {
     },
   });
 
-  const tree = renderer.create(
-    <StyleSandbox elementId="myId">
-      <Div>test</Div>
-    </StyleSandbox>,
-  ).toJSON();
+  const tree = renderer
+    .create(
+      <StyleSandbox elementId="myId">
+        <Div>test</Div>
+      </StyleSandbox>,
+    )
+    .toJSON();
 
-  expect(tree).toMatchSnapshot();
+  expect(tree).toMatchInlineSnapshot(`
+    #myId .emotion-0 ~ span {
+      content: "prefix";
+    }
+
+    #myId a:hover + .emotion-0 {
+      content: "suffix";
+    }
+
+    <div
+      id="myId"
+    >
+      <div
+        className="emotion-0"
+      >
+        test
+      </div>
+    </div>
+  `);
 });
