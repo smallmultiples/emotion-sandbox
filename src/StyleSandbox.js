@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import { CacheProvider } from "@emotion/core";
+import createCache from "@emotion/cache";
 import createSandboxPlugin from "./createSandboxPlugin";
 
 const propTypes = {
@@ -9,7 +10,14 @@ const propTypes = {
 };
 
 function StyleSandbox({ children, elementId }) {
-  const styleCache = createSandboxPlugin(`#${elementId}`);
+  const styleCache = useMemo(
+    () => createCache({
+      stylisPlugins: [
+        createSandboxPlugin(`#${elementId}`),
+      ],
+    }),
+    [elementId],
+  );
 
   return (
     <CacheProvider value={styleCache}>
