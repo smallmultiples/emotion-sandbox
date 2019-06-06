@@ -3,7 +3,7 @@ function createSandboxPlugin(selector) {
     if (context !== 2 || type === 107) return;
 
     for (let i = 0; i < selectors.length; i++) {
-      selectors[i] = `${selector}${selectors[i]}`;
+      selectors[i] = `${selector} ${selectors[i]}`;
     }
   };
 }
