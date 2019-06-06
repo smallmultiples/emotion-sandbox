@@ -1,6 +1,6 @@
 {
   "name": "@smallmultiples/emotion-sandbox",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A React emotion plugin for high specificity CSS",
   "main": "dist/index.js",
   "repository": "https://github.com/smallmultiples/emotion-sandbox.git",
