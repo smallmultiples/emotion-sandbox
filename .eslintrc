@@ -14,7 +14,9 @@
     "quotes": ["error", "double"],
     "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "no-param-reassign":"off",
+    "no-plusplus":"off",
   },
   "overrides": [{
     "files": ["**/*.styles.js"],
@@ -27,6 +29,7 @@
       "jest": true
     },
     "rules": {
+
       "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
     }
   }]
